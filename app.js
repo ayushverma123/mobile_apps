@@ -1,3 +1,4 @@
+const cors= require('cors');
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
@@ -14,9 +15,7 @@ mongoose.connect('mongodb+srv://ayushv657:gkczp9LJXpkYnN7u@cluster0.stthbi5.mong
 });
 
 app.use(express.json());
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3003');
-} )
+app.use(cors());
 
 const Storage = multer.diskStorage(
 
